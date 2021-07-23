@@ -1,0 +1,1 @@
+sap.ui.define(["celsa/zui_comp/controller/App.controller"],function(o){"use strict";QUnit.module("App Controller");QUnit.test("I should test the App controller",function(n){var t=new o;t.onInit();n.ok(t)})});

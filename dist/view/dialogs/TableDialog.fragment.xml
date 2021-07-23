@@ -1,0 +1,37 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog
+		confirm="handleConfirm">
+		<sortItems>
+			<ViewSettingsItem text="Clase de Consumo" key="ClaseConsumo" selected="true" />
+			<ViewSettingsItem text="Promedio" key="Promedio" />
+			<ViewSettingsItem text="KWh" key="KWh" />
+			<ViewSettingsItem text="Importe" key="Importe" />
+			<ViewSettingsItem text="GKWh" key="GKWh" />
+		</sortItems>
+		<groupItems>
+			<ViewSettingsItem text="Clase de Consumo" key="ClaseConsumo" />
+		</groupItems>
+		<filterItems>
+			<ViewSettingsFilterItem
+				text="Promedio"
+				key="Promedio"
+				multiSelect="false">
+				<items>
+					<ViewSettingsItem text="mayor a 5.000.000" key="Promedio__GT__5000000" />
+					<ViewSettingsItem text="menor a 5.000.000" key="Promedio__LT__5000000" />
+				</items>
+			</ViewSettingsFilterItem>
+		<ViewSettingsFilterItem
+				text="KWh"
+				key="KWh"
+				multiSelect="false">
+				<items>
+					<ViewSettingsItem text="mayor a 5.000.000" key="KWh__GT__5000000" />
+					<ViewSettingsItem text="menor a 5.000.000" key="KWh__LT__5000000" />
+				</items>
+			</ViewSettingsFilterItem>
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

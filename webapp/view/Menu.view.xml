@@ -1,0 +1,105 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="celsa.zui_comp.controller.Menu"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:fb="sap.ui.comp.filterbar">
+	<App>
+		<pages>
+			<Page title="Purchase orders view">
+				<content>
+					<fb:FilterBar id="filterBar" reset="onReset"  search="onSearch" clear="onClear" cancel="onCancel" filtersDialogClosed="onFiltersDialogClosed"
+						showRestoreButton="true" showClearOnFB="true">
+						<fb:filterGroupItems>
+							<fb:FilterGroupItem groupName="__$INTERNAL$" name="A" label="Supplier Name" visibleInFilterBar="true">
+								<fb:control>
+									<HBox>
+										<items>
+											<Input id="supplierName" placeholder="Select supplier name.." valueHelpOnly="true" showValueHelp="true" busy="{EquipoMatchcode>/Busy}"
+												value="{FilterModel>/supplier}" valueHelpRequest="onHandleSupplier"></Input>
+										</items>
+									</HBox>
+								</fb:control>
+							</fb:FilterGroupItem>
+							<fb:FilterGroupItem groupName="__$INTERNAL$" name="B" label="Material" visibleInFilterBar="true">
+								<fb:control>
+									<HBox>
+										<items>
+											<Input id="materialName" placeholder="Select material.." valueHelpOnly="true" showValueHelp="true" busy="{EquipoMatchcode>/Busy}"
+												value="{FilterModel>/material}" valueHelpRequest="onHandleMaterial"></Input>
+											<Button icon="sap-icon://bar-code" press="onBarcodePress" type="Transparent"/>
+										</items>
+									</HBox>
+								</fb:control>
+							</fb:FilterGroupItem>
+							<fb:FilterGroupItem groupName="__$INTERNAL$" name="C" label="Location" visibleInFilterBar="true">
+								<fb:control>
+									<HBox>
+										<items>
+											<Input id="LocationName" placeholder="Select Location.." valueHelpOnly="true" showValueHelp="true" busy="{EquipoMatchcode>/Busy}"
+												value="{FilterModel>/locat}" valueHelpRequest="onHandleLocation"></Input>
+											<Button icon="sap-icon://bar-code" press="onBarcodePress" type="Transparent"/>
+										</items>
+									</HBox>
+								</fb:control>
+							</fb:FilterGroupItem>
+						</fb:filterGroupItems>
+					</fb:FilterBar>
+					<Table id="tableMateriales" mode="SingleSelectMaster" selectionChange="onNavigate" inset="false" items="{AppJsonModel>/items}"
+						popinLayout="GridSmall">
+						<headerToolbar>
+							<Toolbar>
+								<ToolbarSpacer/>
+								<SearchField id="asistenteSearchfield" width="40%" placeholder="Search by Purchase Order" liveChange=".onSearchPO" class="sapUiSmallMargin"/>
+								<!--<Button tooltip="View Settings" icon="sap-icon://drop-down-list" press="handleViewSettingsDialogButtonPressed"/>-->
+							</Toolbar>
+						</headerToolbar>
+						<infoToolbar>
+							<Toolbar id="vsdFilterBar" visible="false">
+								<Text id="vsdFilterLabel"/>
+							</Toolbar>
+						</infoToolbar>
+						<columns>
+							<Column>
+								<Text text="Purchase Order"/>
+							</Column>
+							<Column >
+								<Text text="Purchase Order Type"/>
+							</Column>
+							<Column hAlign="Left" minScreenWidth="Desktop" demandPopin="true" importance="Medium">
+								<Text text="Supplier"/>
+							</Column>
+							<Column hAlign="Left" minScreenWidth="Desktop" demandPopin="true" importance="Medium">
+								<Text text="Supplier Name"/>
+							</Column>
+							<Column hAlign="Left" minScreenWidth="Desktop" demandPopin="true" importance="Medium">
+								<Text text="Location"/>
+							</Column>
+							<Column hAlign="Left" minScreenWidth="Desktop" demandPopin="true" importance="Medium">
+								<Text text="Material"/>
+							</Column>
+							<Column hAlign="Left" minScreenWidth="Desktop" demandPopin="true" importance="Medium">
+								<Text text="Material Short Text"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem> 
+								<cells>
+									<ObjectAttribute class="text-bold-azul" text="{AppJsonModel>PurchaseOrder}"/>
+									<ObjectAttribute text="{AppJsonModel>POType}"/>
+									<ObjectAttribute class="color-yellow" text="{AppJsonModel>Supplier}"/>
+									<ObjectAttribute text="{AppJsonModel>SupplierName}"/>
+									<ObjectAttribute class="color-yellow" text="{AppJsonModel>Location}"/>
+									<ObjectAttribute text="{AppJsonModel>Material}"/>
+									<ObjectAttribute text="{AppJsonModel>MaterialText}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+				<!--<footer>
+					<OverflowToolbar>
+						<ToolbarSpacer/>
+						<Button text="Descargar Excel" type="Accept" press="onDataExport"/>
+					</OverflowToolbar>
+				</footer>-->
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

@@ -1,0 +1,13 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="celsa.zui_comp.controller.OrderDetail"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="Order Details">
+				<content>
+					<MessageStrip text="..under Construction.." type="Information" showIcon="true" showCloseButton="true"
+						class="sapUiMediumMarginBottom"></MessageStrip>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

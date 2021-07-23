@@ -1,0 +1,12 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:fb="sap.ui.comp.filterbar" xmlns:core="sap.ui.core">
+	<SelectDialog
+		title="Material"
+		items="{AppJsonModel>/Material}"
+		search=".onMaterialDialogSearch"
+		confirm=".onMaterialDialogClose"
+		cancel=".onMaterialDialogClose" >
+			<StandardListItem
+			  info="{AppJsonModel>key}"
+			  title="{AppJsonModel>Desc}" />
+	</SelectDialog>
+</core:FragmentDefinition>	
